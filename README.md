@@ -15,6 +15,7 @@
 ### 使用压缩工具打开 `idea-multimarkdown.jar` 按下图所示替换 .class 文件即可
 **替换后一定要确认下被替换的 .class 文件修改时间与其他文件修改时间不同。**
 
+![确认替换成功]()
 ![确认替换成功](https://github.com/dcfenga/markdown-navigator/tree/master/doc/Class Replace.png)
 
 完成上面的操作后重启 IDEA 即可。
