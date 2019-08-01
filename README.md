@@ -1,8 +1,6 @@
-# 破解 Markdown Navigator
+# 破解 Markdown Navigator 2.8.4
 
-用了好久的 `2.3.8` 版本，一直懒得更新，今儿不小心把插件删了...然后发现之前参考的链接失效了...
-
-哎，自己重新破解一遍吧...
+本文Fork自CrazyBunQnQ/multimarkdown，以IDE版本2019.2，Markdown Navigator 2.8.4版本为例说明！
 
 ## 安装 Markdown Navigator 插件
 
