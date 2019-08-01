@@ -6,5 +6,4 @@
 .idea
 *.iml
 out
-gen
-/releases/2.7.0/source/
+/releases

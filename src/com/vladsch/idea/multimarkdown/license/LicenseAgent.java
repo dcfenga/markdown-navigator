@@ -14,11 +14,33 @@
  */
 package com.vladsch.idea.multimarkdown.license;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.util.net.HttpConfigurable;
+import com.vladsch.idea.multimarkdown.MdPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.crypto.NoSuchPaddingException;
+import javax.json.Json;
+import javax.json.JsonException;
+import javax.json.JsonNumber;
 import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonValue;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,8 +82,7 @@ public class LicenseAgent {
     final static public String auth2SiteURL = "vladsch.com";
 
     // DEBUG : debug site and licensing URLs
-    //final static public String siteURL = "vladsch.dev";
-    //final static public String siteURL = "https://dev.vladsch.com";
+    //final static public String siteURL = "http://vladsch.dev";
     //final static public String authSiteURL = "vladsch.dev";
     //final static public String auth1SiteURL = authSiteURL;
     //final static public String auth2SiteURL = authSiteURL;
@@ -81,8 +102,8 @@ public class LicenseAgent {
     final static public String specialsPageURL = siteURL + productPrefixURL + "/specials";
     final static public String productPageURL = siteURL + productPrefixURL;
     final static public String referralsPageURL = siteURL + productPrefixURL + "/referrals";
-    final static public String feedbackURL = auth2SiteURL + productPrefixURL + "/json/diagnostic";
-    final static public String feedbackURL1 = authSiteURL + productPrefixURL + "/json/diagnostic";
+    final static public String feedbackURL = authSiteURL + productPrefixURL + "/json/diagnostic";
+    final static public String feedbackURL1 = auth2SiteURL + productPrefixURL + "/json/diagnostic";
     private static final String ACTIVATION_EXPIRES = "activation_expires";
     private static final String LICENSE_EXPIRES = "license_expires";
     private static final String PRODUCT_VERSION = "product_version";
@@ -127,7 +148,7 @@ public class LicenseAgent {
 
     /**
      * 先走默认构造器
-     * @param other
+     * @author dcfenga
      */
     public LicenseAgent(LicenseAgent other) {
         this();
@@ -167,18 +188,21 @@ public class LicenseAgent {
 
     /**
      * 不设置任何东西
+     * @author dcfenga
      */
     public void setLicenseCode(String license_code) {
     }
 
     /**
      * 不设置任何东西
+     * @author dcfenga
      */
     public void setLicenseActivationCodes(String license_code, String activation_code) {
     }
 
     /**
      * 不设置任何东西
+     * @author dcfenga
      */
     public void setActivationCode(String activation_code) {
     }
@@ -196,6 +220,7 @@ public class LicenseAgent {
     /**
      * 改过期时间
      * @return
+     * @author dcfenga
      */
     @Nullable
     public String getLicenseExpires() {
@@ -235,6 +260,7 @@ public class LicenseAgent {
 
     /**
      * 添加功能
+     * @author dcfenga
      */
     public LicenseAgent() {
         featureList = new HashMap<>();
@@ -244,6 +270,7 @@ public class LicenseAgent {
 
     /**
      * 直接返回 true
+     * @author dcfenga
      */
     public boolean  getLicenseCode(LicenseRequest licenseRequest) {
         return true;
@@ -251,6 +278,7 @@ public class LicenseAgent {
 
     /**
      * 直接返回 true
+     * @author dcfenga
      */
     public boolean isValidLicense() {
         return true;
@@ -258,6 +286,7 @@ public class LicenseAgent {
 
     /**
      * 直接返回 true
+     * @author dcfenga
      */
     public boolean isValidActivation() {
         return true;
@@ -265,6 +294,7 @@ public class LicenseAgent {
 
     /**
      * 修改为具体值
+     * @author dcfenga
      */
     @NotNull
     public String getLicenseType() {
@@ -273,6 +303,7 @@ public class LicenseAgent {
 
     /**
      * 修改为具体值
+     * @author dcfenga
      */
     public int getLicenseFeatures() {
         return LicensedFeature.Feature.LICENSE.getLicenseFlags();//其实就是 4
@@ -280,6 +311,7 @@ public class LicenseAgent {
 
     /**
      * 设置到期日
+     * @author dcfenga
      */
     @NotNull
     public String getLicenseExpiration() {
@@ -304,14 +336,16 @@ public class LicenseAgent {
 
     /**
      * 设置注册日期
+     * @author dcfenga
      */
     @NotNull
     public String getActivatedOn() {
-        return "2018-01-01";
+        return "2019-08-01";
     }
 
     /**
      * 设置剩余天数
+     * @author dcfenga
      */
     public int getLicenseExpiringIn() {
         return Integer.MAX_VALUE;
@@ -343,6 +377,7 @@ public class LicenseAgent {
     /**
      * 直接返回否：未过期
      * @return
+     * @author dcfenga
      */
     public boolean isActivationExpired() {
         return false;

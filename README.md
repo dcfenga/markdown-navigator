@@ -4,11 +4,11 @@
 
 ## 安装 Markdown Navigator 插件
 
-这个不解释了，安装啥插件都一样，自己谷歌下。
+本文采用从磁盘安装的方式安装插件，从[此处](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)下载安装包，安装后插件目录位于：{HOME}.IntelliJIdea2019.1/config/plugins.
 
 ## 修改文件
 
-将 [`LicenseAgent.class` 文件](https://github.com/CrazyBunQnQ/multimarkdown/releases/tag/2.7.0)拷贝到 Markdown Navigator 插件安装目录 `/lib/idea-multimarkdown.jar` 包中的 `com.vladsch\idea\multimarkdown\license` 目录下，覆盖原有的 `LicenseAgent.class` 文件
+将重新编译后的 [`LicenseAgent.class`](https://github.com/CrazyBunQnQ/multimarkdown/releases/tag/2.7.0)文件拷贝到 Markdown Navigator 插件安装目录 `/lib/idea-multimarkdown.jar` 包中的 `com.vladsch\idea\multimarkdown\license` 目录下，覆盖原有的 `LicenseAgent.class` 文件
 
 >具体修改方法、内容感兴趣的可以看后面的[详细破解方法](#破解全过程)和 [`LicenseAgent.java` 注释](https://github.com/CrazyBunQnQ/multimarkdown)
 
@@ -70,16 +70,16 @@ open lib
 ```bash
 # 1. 将安装好的插件拷贝出来，并保存为 `idea-multimarkdown.bak.jar` 作为备份
 cd 你的项目目录
-cp ~/Library/Application\ Support/IntelliJIdea2018.x/idea-multimarkdown/lib/idea-multimarkdown.jar ./releases/2.7.0/idea-multimarkdown.bak.jar
+cp {HOME}/.IntelliJIdea2019.1/config/plugins/idea-multimarkdown/lib/idea-multimarkdown.jar ./releases/2.8.0/idea-multimarkdown.bak.jar
 # 2. 解压插件
-cd releases/2.7.0
+cd releases/2.8.0
 # 解压到 source 文件夹(没找到解压到指定文件夹的参数...)
 cp idea-multimarkdown.bak.jar ./source/
 cd source
 jar xvf idea-multimarkdown.bak.jar && rm -f idea-multimarkdown.bak.jar
 # 将要修改的 LicenseAgent.java 拷贝到上面创建的包里
 cd 你的项目目录
-cp releases/2.7.0/source/com/vladsch/idea/multimarkdown/license/LicenseAgent.java src/com/vladsch/idea/multimarkdown/license/
+cp releases/2.8.0/source/com/vladsch/idea/multimarkdown/license/LicenseAgent.java src/com/vladsch/idea/multimarkdown/license/
 ```
 
 
