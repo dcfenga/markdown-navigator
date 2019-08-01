@@ -1,6 +1,6 @@
 # 破解 Markdown Navigator 2.8.4
 
-本文Fork自CrazyBunQnQ/multimarkdown，以IDE版本2019.2，Markdown Navigator 2.8.4版本为例说明！
+本文Fork自CrazyBunQnQ/multimarkdown(非常感谢您的无私奉献)，以IDE版本2019.1.2、Markdown Navigator 2.8.4版本为例说明！
 
 ## 安装 Markdown Navigator 插件
 
