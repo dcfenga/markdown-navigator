@@ -79,7 +79,7 @@ cd ..
 cp idea-multimarkdown.jar {HOME}/.IntelliJIdea2019.1/config/plugins/idea-multimarkdown/lib/idea-multimarkdown.jar
 ```
 
-完成以上步骤后重启 idea 即可
+完成以上步骤后重启 IDEA 即可
 
 ## 参考
 
