@@ -10,16 +10,16 @@
 
 将重新编译后的 [`LicenseAgent.class`](https://github.com/dcfenga/markdown-navigator/tree/master/releases/2.8.0)文件拷贝到 Markdown Navigator 插件安装目录 `/lib/idea-multimarkdown.jar` 包中的 `com.vladsch\idea\multimarkdown\license` 目录下，覆盖原有的 `LicenseAgent.class` 文件。
 
->具体修改方法、内容感兴趣的可以看后面的[详细破解方法](#破解全过程)和 [`LicenseAgent.java` 注释](https://github.com/dcfenga/markdown-navigator/tree/master/src/com/vladsch/idea/multimarkdown/license)。
+>具体修改方法、内容感兴趣的可以看后面的[详细破解方法](#破解全过程)和 [`LicenseAgent.java`](https://github.com/dcfenga/markdown-navigator/tree/master/src/com/vladsch/idea/multimarkdown/license)。
 
 ### 使用压缩工具打开 `idea-multimarkdown.jar` 按下图所示替换 .class 文件即可
 **替换后一定要确认下被替换的 .class 文件修改时间与其他文件修改时间不同。**
 
-![确认替换成功](https://github.com/dcfenga/markdown-navigator/tree/master/doc/ClassReplace.png)
+![确认替换成功](doc/ClassReplace.png)
 
 完成上面的操作后重启 IDEA 即可。
 
-## 破解全过程
+## 详细破解方法
 
 >默认你已经安装好插件了。
 >
@@ -31,7 +31,7 @@
 >以下路径根据自己电脑情况有所变化。
 
 创建项目时必须创建 `com.vladsch.idea.multimarkdown.license` 包，与原始 jar 包中的结构一致:
-![ProjctStructure.png](https://github.com/dcfenga/markdown-navigator/tree/master/doc/ProjctStructure.png)
+![ProjctStructure.png](doc/ProjctStructure.png)
 
 ### 修改文件
 
@@ -58,7 +58,7 @@ cp releases/2.8.0/source/com/vladsch/idea/multimarkdown/license/LicenseAgent.jav
 
 IDEA 依赖包在 IDEA 安装目录中，multimarkdown 的依赖包在该插件目录中:
 
-![IDEA 依赖包](https://github.com/dcfenga/markdown-navigator/tree/master/doc/Library.png)
+![IDEA 依赖包](doc/Library.png)
 
 >路径参考图中路径
 
