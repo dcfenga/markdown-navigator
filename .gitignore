@@ -6,4 +6,4 @@
 .idea
 *.iml
 out
-/releases
+/releases/2.8.0/source/
