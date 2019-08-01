@@ -10,7 +10,7 @@
 
 将重新编译后的 [`LicenseAgent.class`](https://github.com/dcfenga/markdown-navigator/tree/master/releases/2.8.0)文件拷贝到 Markdown Navigator 插件安装目录 `/lib/idea-multimarkdown.jar` 包中的 `com.vladsch\idea\multimarkdown\license` 目录下，覆盖原有的 `LicenseAgent.class` 文件。
 
->具体修改方法、内容感兴趣的可以看后面的[详细破解方法](#破解全过程)和 [`LicenseAgent.java`](https://github.com/dcfenga/markdown-navigator/tree/master/src/com/vladsch/idea/multimarkdown/license)。
+>具体修改方法、内容感兴趣的可以看后面的[详细破解方法](#详细破解方法)和 [`LicenseAgent.java`](https://github.com/dcfenga/markdown-navigator/tree/master/src/com/vladsch/idea/multimarkdown/license)。
 
 ### 使用压缩工具打开 `idea-multimarkdown.jar` 按下图所示替换 .class 文件即可
 **替换后一定要确认下被替换的 .class 文件修改时间与其他文件修改时间不同。**
