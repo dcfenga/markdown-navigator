@@ -83,4 +83,4 @@ cp idea-multimarkdown.jar {HOME}/.IntelliJIdea2019.1/config/plugins/idea-multima
 
 ## 参考
 
-[破解 IntelliJ IDEA 插件 Markdown Navigator ）](https://code.skyheng.com/post/54321.html)
+[破解 IntelliJ IDEA 插件 Markdown Navigator](https://code.skyheng.com/post/54321.html)
