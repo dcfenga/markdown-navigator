@@ -3,9 +3,11 @@
 本文Fork自CrazyBunQnQ/multimarkdown(非常感谢您的无私奉献)，以IDE版本2019.1.2、Markdown
 Navigator 2.9.0(2.8.4也可)版本为例展示破解过程！
 
-## 安装 Markdown Navigator 插件
+## 安装插件
 
-本文采用从磁盘安装的方式安装插件，从[此处](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)下载安装包idea-multimarkdown.2.9.0.zip，安装后插件目录位于：{HOME}.IntelliJIdea2019.1/config/plugins.
+首先采用从磁盘安装的方式安装插件，从[此处](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)下载安装包idea-multimarkdown.2.9.0.zip，安装后插件目录位于：{HOME}.IntelliJIdea2019.1/config/plugins.
+
+或者从本项目获取安装包：[idea-multimarkdown.2.9.0.zip](plugins/2.9.0/idea-multimarkdown.2.9.0.zip)
 
 ## 修改文件
 
@@ -26,11 +28,15 @@ Markdown Navigator 插件安装目录 `/lib/idea-multimarkdown.jar`
 
 ![确认替换成功](doc/ClassReplace.png)
 
-完成上面的操作后重启 IDEA 即可。
+或者使用本项目备份的[idea-multimarkdown.jar](releases/2.9.0/idea-multimarkdown.jar)直接替换{HOME}.IntelliJIdea2019.1/config/plugins/idea-multimarkdown/lib/目录下同名的文件。
 
-## 详细破解方法
+## 重启IDEA
 
-### 创建项目
+完成上面的操作后重启IDEA即可。
+
+# 详细破解方法
+
+## 创建项目
 
 实际上直接克隆此项目即可, 以下路径根据自己工作环境情况有所变化。
 
@@ -39,7 +45,7 @@ jar包中的结构一致:
 
 ![ProjctStructure.png](doc/ProjctStructure.png)
 
-### 修改文件
+## 修改文件
 
 ```bash
 # 1. 将安装好的插件拷贝出来，并保存为 `idea-multimarkdown.bak.jar` 作为备份，或者解压下载的文件idea-multimarkdown.2.9.0.zip
@@ -64,7 +70,7 @@ cp releases/2.9.0/source/com/vladsch/idea/multimarkdown/license/LicenseAgent.jav
 Project Setting中设置Project compiler output.
 ```
 
-### 编译文件
+## 编译文件
 
 打开 `LicenseAgent.java` 文件你会发现很多报错，无法编译，是因为没有依赖包。
 
@@ -82,7 +88,7 @@ IDEA 依赖包在 IDEA
 
 ![Out2.png](doc/Out2.png)
 
-### 重新打包
+## 重新打包
 
 ```bash
 cd 项目目录
@@ -101,6 +107,6 @@ cp idea-multimarkdown.jar {HOME}/.IntelliJIdea2019.1/config/plugins/idea-multima
 
 完成以上步骤后重启 IDEA 即可。
 
-## 参考
+# 参考
 
 [破解 IntelliJ IDEA 插件 Markdown Navigator](https://code.skyheng.com/post/54321.html)
